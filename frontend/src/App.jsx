@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter basename="/Company">
+      <BrowserRouter basename="/Demo">
         <Routes>
           <Route exact path='/' element={<LandingPage />} />
           <Route exact path='*' element={<NotFound />} />
