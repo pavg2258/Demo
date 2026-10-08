@@ -1,0 +1,64 @@
+.notfound-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--bg-main) 0%, #E2E8F0 100%);
+    text-align: center;
+    padding: 2rem;
+}
+
+.notfound-content {
+    background: var(--surface-white);
+    padding: 4rem 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    max-width: 600px;
+    width: 100%;
+}
+
+.notfound-error-code {
+    font-size: 8rem;
+    font-weight: 900;
+    color: var(--brand-blue);
+    line-height: 1;
+    margin-bottom: 1rem;
+    background: -webkit-linear-gradient(45deg, var(--brand-blue), var(--brand-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.notfound-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--brand-navy);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.notfound-message {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.notfound-home-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--brand-blue);
+    color: var(--surface-white);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.notfound-home-btn:hover {
+    background-color: var(--brand-blue-hover);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
