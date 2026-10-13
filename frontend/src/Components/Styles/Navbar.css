@@ -1,0 +1,176 @@
+/* --- Shared Navigation Component Styles --- */
+.landing-nav-container {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 4rem;
+    box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.nav-logo-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-flex;
+    align-items: center;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nav-logo-link:hover {
+    opacity: 0.9;
+    transform: scale(1.01);
+}
+
+.nav-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--brand-navy, #0F172A);
+    letter-spacing: -0.04em;
+    padding: 8px 0;
+}
+
+.nav-logo-container img {
+    height: 40px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.nav-logo-divider {
+    color: var(--border-color, #CBD5E1);
+    font-size: 1.6rem;
+    font-weight: 300;
+    user-select: none;
+}
+
+.hcltech-logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hcltech-logo-wrapper svg {
+    color: #3174C3;
+    display: block;
+    width: 28px;
+    height: 28px;
+}
+
+.hcltech-text {
+    color: #00479A;
+    font-size: 2.1rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+}
+
+.landing-nav-links-container {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.landing-nav-links-container a {
+    text-decoration: none;
+    color: var(--text-muted, #64748B);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition, all 0.2s ease);
+}
+
+.landing-nav-links-container a:hover {
+    color: var(--brand-blue, #2563EB);
+}
+
+/* --- Responsive Breakpoints for Navbar --- */
+@media (max-width: 1024px) {
+    .landing-nav-container {
+        padding: 0.9rem 2.5rem;
+    }
+
+    .nav-logo-container img {
+        height: 36px;
+    }
+
+    .hcltech-text {
+        font-size: 1.85rem;
+    }
+
+    .hcltech-logo-wrapper svg {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .landing-nav-container {
+        padding: 0.85rem 1.5rem;
+    }
+
+    .nav-logo-container {
+        gap: 0.9rem;
+        padding: 4px 0;
+    }
+
+    .nav-logo-container img {
+        height: 32px;
+    }
+
+    .nav-logo-divider {
+        font-size: 1.3rem;
+    }
+
+    .hcltech-text {
+        font-size: 1.6rem;
+    }
+
+    .hcltech-logo-wrapper svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .landing-nav-links-container {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-nav-container {
+        padding: 0.75rem 1rem;
+    }
+
+    .nav-logo-container {
+        gap: 0.65rem;
+    }
+
+    .nav-logo-container img {
+        height: 26px;
+    }
+
+    .nav-logo-divider {
+        font-size: 1.1rem;
+    }
+
+    .hcltech-text {
+        font-size: 1.35rem;
+    }
+
+    .hcltech-logo-wrapper svg {
+        width: 19px;
+        height: 19px;
+    }
+}

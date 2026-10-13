@@ -4,6 +4,7 @@ import './App.css'
 
 import LandingPage from './Components/Pages/LandingPage'
 import NotFound from './Components/Pages/NotFound'
+import CardsDetails from './Components/Pages/CardsDetails'
 
 const Icons = {
   Link: () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>,
@@ -19,6 +20,7 @@ function App() {
       <BrowserRouter basename="/Demo">
         <Routes>
           <Route exact path='/' element={<LandingPage />} />
+          <Route exact path='/cards/:id' element={<CardsDetails />} />
           <Route exact path='*' element={<NotFound />} />
         </Routes>
       </BrowserRouter>

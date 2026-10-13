@@ -15,6 +15,10 @@ body {
   width: 100%;
 }
 
+button, input, select, textarea {
+  font-family: inherit;
+}
+
 :root {
   /* Corporate Palette */
   --brand-navy: #0F172A;

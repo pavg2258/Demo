@@ -5,83 +5,7 @@
     min-height: 100vh;
     background-color: var(--bg-main);
     color: var(--text-dark);
-}
-
-/* --- Navigation --- */
-.landing-nav-container {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background-color: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1.25rem 4rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    transition: var(--transition);
-}
-
-.nav-logo-container {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--brand-navy);
-    letter-spacing: -0.04em;
-    padding: 16px 0;
-}
-
-.nav-logo-container img {
-    height: 42px;
-    width: auto;
-}
-
-.nav-logo-container svg {
-    display: none;
-    /* Just in case there is a leftover */
-}
-
-.hcltech-logo-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.hcltech-logo-wrapper svg {
-    color: #3174C3;
-    /* The exact lighter blue of the layers icon */
-    display: block;
-}
-
-.hcltech-text {
-    color: #00479A;
-    /* The exact deep blue of the HCLTech brand text */
-    font-size: 2.2rem;
-    font-weight: 800;
-    letter-spacing: -0.04em;
-}
-
-.landing-nav-links-container {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.landing-nav-links-container a {
-    text-decoration: none;
-    color: var(--text-muted);
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: var(--transition);
-}
-
-.landing-nav-links-container a:hover {
-    color: var(--brand-blue);
+    width: 100%;
 }
 
 /* --- Main Content --- */
@@ -211,6 +135,271 @@
     width: 4rem;
 }
 
+/* Initial Hero Status Card */
+.bento-card {
+    position: relative;
+    width: 100%;
+    min-height: 340px;
+    border-radius: var(--radius-lg, 20px);
+    overflow: hidden;
+    background: url("https://cdn-rio.dataweavers.io/-/media/content/images/invest/financial-news-and-performance/rt-1-26252.jpg?rev=8fa1d3f5d4764f54bc71895da2135592") center / cover no-repeat;
+    box-shadow: 0 10px 30px -10px rgba(11, 19, 43, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.bento-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px -10px rgba(11, 19, 43, 0.35);
+}
+
+.bento-card-content {
+    position: relative;
+    z-index: 2;
+    padding: 3.5rem 4rem;
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.15rem;
+    color: var(--surface-white, #ffffff);
+}
+
+.bento-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 1rem;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #e2e8f0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.bento-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #10B981;
+    box-shadow: 0 0 10px #10B981, 0 0 18px rgba(16, 185, 129, 0.8);
+    animation: bentoPulse 2.2s infinite ease-in-out;
+}
+
+@keyframes bentoPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.35);
+        opacity: 0.55;
+    }
+}
+
+.bento-card-title {
+    font-size: 2.35rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.bento-card-subtitle {
+    font-size: 1.15rem;
+    color: rgba(241, 245, 249, 0.92);
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-bento {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--brand-navy, #0B132B);
+    background-color: #ffffff;
+    padding: 0.85rem 1.75rem;
+    border-radius: var(--radius-sm, 8px);
+    text-decoration: none;
+    margin-top: 0.75rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-bento:hover {
+    background-color: rgb(201, 201, 201);
+    border-color: rgb(201, 201, 201);
+    transform: translateY(-2px);
+}
+
+.btn-bento-icon {
+    font-size: 0.9rem;
+    transition: transform 0.25s ease;
+}
+
+.btn-bento:hover .btn-bento-icon {
+    transform: translateY(2px);
+}
+
+@media (max-width: 768px) {
+    .bento-card {
+        min-height: auto;
+    }
+
+    .bento-card-content {
+        padding: 2.25rem 1.5rem;
+    }
+
+    .bento-card-title {
+        font-size: 1.75rem;
+    }
+
+    .bento-card-subtitle {
+        font-size: 1rem;
+    }
+
+    .btn-bento {
+        width: 100%;
+    }
+}
+
+/* Cards */
+
+.landing-page-cards-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+    padding: 0;
+    margin-bottom: 4rem;
+    margin-top: 3rem;
+}
+
+.landing-page-cards-container .popular-pages-heading {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--brand-navy);
+    letter-spacing: -0.03em;
+    margin: 0 0 1.75rem 0;
+}
+
+.landing-page-card {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+.landing-page-navlink {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.landing-page-card .landing-page-card-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.landing-page-card-image-wrapper {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+    background-color: #F1F5F9;
+}
+
+.landing-page-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.landing-page-card-details:hover .landing-page-card-image {
+    transform: scale(1.06);
+}
+
+.landing-page-card-details:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 25px -5px rgba(15, 23, 42, 0.1);
+}
+
+.landing-page-card-details-container {
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.landing-page-card-details-container .landing-page-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--brand-navy);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.35;
+    min-height: 2.2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.landing-page-card-details-container .landing-page-card-content {
+    font-size: 0.975rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0 0 1.25rem 0;
+    flex-grow: 1;
+    min-height: 3.8rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 /* --- Strategic Integration (Content Section) --- */
 .landing-page-content-section {
     display: grid;
@@ -221,6 +410,7 @@
 }
 
 .landing-page-content-image {
+    display: block;
     width: 100%;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-hover);
@@ -229,7 +419,22 @@
     transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
+.landing-page-content-image-responsiveness {
+    display: none;
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    object-fit: cover;
+    aspect-ratio: 4/3;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
 .landing-page-content-image:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 35px -5px rgba(0, 0, 0, 0.15), 0 15px 20px -5px rgba(0, 0, 0, 0.1);
+}
+
+.landing-page-content-image-responsiveness:hover {
     transform: translateY(-8px);
     box-shadow: 0 25px 35px -5px rgba(0, 0, 0, 0.15), 0 15px 20px -5px rgba(0, 0, 0, 0.1);
 }
@@ -263,6 +468,39 @@
     color: var(--text-muted);
     margin-bottom: 1.5rem;
 }
+
+.landing-page-card-details .landing-page-card-btn {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 8px;
+    border: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+    background-color: transparent;
+    color: var(--brand-navy);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-top: auto;
+    padding: 0;
+}
+
+.landing-page-card-details:hover .landing-page-card-btn {
+    color: var(--brand-blue);
+}
+
+.landing-page-card-btn-icon {
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+}
+
+.landing-page-card-details:hover .landing-page-card-btn-icon {
+    transform: translateX(5px);
+    color: var(--brand-blue-hover, #1D4ED8);
+}
+
 
 /* --- Metrics / Percentages --- */
 .landing-page-metrics-section {
@@ -659,6 +897,28 @@
 }
 
 @media (max-width: 1024px) {
+    .landing-page-content-image {
+        display: none !important;
+    }
+
+    .landing-page-content-image-responsiveness {
+        display: block !important;
+        width: 100%;
+        max-height: 440px;
+        object-fit: cover;
+        margin: 1.5rem 0 2rem 0;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-card);
+    }
+
+    .landing-page-card {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .landing-page-card>.landing-page-navlink:last-child:nth-child(odd) {
+        grid-column: span 2;
+    }
 
     .landing-nav-container,
     .landing-page-main-container {
@@ -668,7 +928,7 @@
 
     .landing-page-content-section {
         grid-template-columns: 1fr;
-        gap: 3.5rem;
+        gap: 2.5rem;
     }
 
     .landing-page-key-contacts-grid {
@@ -690,6 +950,49 @@
 }
 
 @media (max-width: 768px) {
+    .landing-page-cards-container {
+        margin-bottom: 3.5rem;
+    }
+
+    .landing-page-cards-container .popular-pages-heading {
+        font-size: 1.85rem;
+        margin-bottom: 1.25rem;
+        text-align: left;
+    }
+
+    .landing-page-card {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .landing-page-card>.landing-page-navlink:last-child:nth-child(odd) {
+        grid-column: span 1;
+    }
+
+    .landing-page-card-image-wrapper {
+        height: 200px;
+    }
+
+    .landing-page-card-details-container {
+        padding: 1.25rem 1.25rem;
+    }
+
+    .landing-page-card-details-container .landing-page-card-title {
+        min-height: auto;
+        font-size: 1.2rem;
+    }
+
+    .landing-page-card-details-container .landing-page-card-content {
+        min-height: auto;
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     .landing-nav-links-container {
         display: none;
     }
@@ -738,6 +1041,20 @@
         flex-direction: column;
         text-align: center;
         gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-page-cards-container .popular-pages-heading {
+        font-size: 1.6rem;
+    }
+
+    .landing-page-card-image-wrapper {
+        height: 180px;
+    }
+
+    .landing-page-card-details-container {
+        padding: 1.15rem 1.15rem;
     }
 }
 

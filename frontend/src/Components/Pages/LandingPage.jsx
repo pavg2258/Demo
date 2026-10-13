@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import '../Styles/LandingPage.css'
-import { FaUserCircle } from 'react-icons/fa'
+import { NavLink } from 'react-router'
+import { FaArrowRight, FaUserCircle, FaDownload } from 'react-icons/fa'
 
 const slides = [
     {
@@ -31,6 +32,27 @@ const slides = [
         title: 'Global Infrastructure Modernization',
         subtitle: 'Optimizing Oyu Tolgoi and SimFer deployments.',
         button: "Download"
+    }
+];
+
+export const gallery = [
+    {
+        id: 1,
+        img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+        title: "Oyu Tolgoi Copper Expansion",
+        desc: "Advanced underground block caving techniques maximizing yield while minimizing surface footprint."
+    },
+    {
+        id: 2,
+        img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80",
+        title: "Global Command Center",
+        desc: "Integrated data hubs providing real-time telemetry and supply chain logistics."
+    },
+    {
+        id: 3,
+        img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+        title: "Automated Site Surveys",
+        desc: "Drone-assisted mapping ensuring accurate geological modeling and worker safety."
     }
 ];
 
@@ -103,40 +125,79 @@ const LandingPage = () => {
                     </div>
                 </div>
                 {/* <ul className='landing-nav-links-container'>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">Solutions</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Resources</a></li>
-                </ul> */}
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Solutions</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Resources</a></li>
+                    </ul> */}
             </nav>
 
             <main className='landing-page-main-container'>
-                <div className="landing-page-carousel-wrapper">
-                    {slides.map((slide, index) => (
-                        <div key={slide.id} className={`landing-page-carousel-slide ${index === currentSlide ? 'active' : ''}`}>
-                            {slide.type === 'video' ? (
-                                <video className="landing-page-carousel-media" autoPlay loop muted playsInline>
-                                    <source src={slide.url} type="video/mp4" />
-                                </video>
-                            ) : (
-                                <>
-                                    <img className="landing-page-carousel-media" src={slide.url} alt={slide.title} loading={index === 0 ? "eager" : "lazy"} fetchPriority={index === 0 ? "high" : "auto"} />
-                                </>
-                            )}
-                            <div className="landing-page-carousel-overlay">
-                                <h2>{slide.title}</h2>
-                                <p>{slide.subtitle}</p>
-                                {slide.button && (
-                                    <a href="#" className="landing-page-carousel-btn">
-                                        {slide.button}
-                                    </a>
+                {/* Courosel */}
+                {/* <div className="landing-page-carousel-wrapper">
+                        {slides.map((slide, index) => (
+                            <div key={slide.id} className={`landing-page-carousel-slide ${index === currentSlide ? 'active' : ''}`}>
+                                {slide.type === 'video' ? (
+                                    <video className="landing-page-carousel-media" autoPlay loop muted playsInline>
+                                        <source src={slide.url} type="video/mp4" />
+                                    </video>
+                                ) : (
+                                    <>
+                                        <img className="landing-page-carousel-media" src={slide.url} alt={slide.title} loading={index === 0 ? "eager" : "lazy"} fetchPriority={index === 0 ? "high" : "auto"} />
+                                    </>
                                 )}
+                                <div className="landing-page-carousel-overlay">
+                                    <h2>{slide.title}</h2>
+                                    <p>{slide.subtitle}</p>
+                                    {slide.button && (
+                                        <a href="#" className="landing-page-carousel-btn">
+                                            {slide.button}
+                                        </a>
+                                    )}
+                                </div>
                             </div>
+                        ))}
+                        <div className="landing-page-carousel-indicators">
+                            {slides.map((_, i) => (
+                                <button key={i} className={`landing-page-carousel-indicator ${i === currentSlide ? 'active' : ''}`} onClick={() => setCurrentSlide(i)} />
+                            ))}
                         </div>
-                    ))}
-                    <div className="landing-page-carousel-indicators">
-                        {slides.map((_, i) => (
-                            <button key={i} className={`landing-page-carousel-indicator ${i === currentSlide ? 'active' : ''}`} onClick={() => setCurrentSlide(i)} />
+                    </div> */}
+
+                <div className="bento-card">
+                    <div className="bento-card-content">
+                        {/* <div className="bento-status-badge">
+                            <span className="bento-status-dot"></span>
+                            Current Status
+                        </div> */}
+                        <h2 className="bento-card-title">{slides[2].title}</h2>
+                        <p className="bento-card-subtitle">{slides[2].subtitle}</p>
+                        <a href="#" className="btn-bento">
+                            Download Report
+                            <FaDownload className="btn-bento-icon" />
+                        </a>
+                    </div>
+                </div>
+
+                {/* Cards */}
+                <div className='landing-page-cards-container'>
+                    <h1 className='popular-pages-heading'>Popular Pages</h1>
+                    <div className='landing-page-card'>
+                        {gallery.map(eachItem => (
+                            <NavLink to={`/cards/${eachItem.id}`} className="landing-page-navlink" key={eachItem.id}>
+                                <div className='landing-page-card-details' key={eachItem.id}>
+                                    <div className='landing-page-card-image-wrapper'>
+                                        <img src={eachItem.img} alt={eachItem.title} className='landing-page-card-image' />
+                                    </div>
+                                    <div className='landing-page-card-details-container'>
+                                        <h3 className='landing-page-card-title'>{eachItem.title}</h3>
+                                        <p className='landing-page-card-content'>{eachItem.desc.length > 70 ? eachItem.desc.substring(0, 70) + "..." : eachItem.desc}</p>
+                                        <button className="landing-page-card-btn">
+                                            Explore <FaArrowRight size="16" className='landing-page-card-btn-icon' />
+                                        </button>
+                                    </div>
+                                </div>
+                            </NavLink>
                         ))}
                     </div>
                 </div>
@@ -152,6 +213,12 @@ const LandingPage = () => {
                     <div className="landing-page-content-description-container">
                         <span className="landing-page-content-description-heading">Strategic Integration</span>
                         <h3 className="landing-page-content-description-title">Pioneering the Future of Autonomous Mining Operations</h3>
+                        <img
+                            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80"
+                            alt="Mining Technology"
+                            loading="lazy"
+                            className="landing-page-content-image-responsiveness"
+                        />
                         <p className="landing-page-content-description-content">
                             At Rio Tinto, our commitment to innovation drives us to rethink how we extract, process, and transport critical resources globally. By leveraging cutting-edge automation, machine learning, and secure cloud environments, we are setting new benchmarks for operational excellence and environmental stewardship.
                         </p>
@@ -279,11 +346,11 @@ const LandingPage = () => {
                             "Our leadership fosters a culture of innovation, continuous learning, and growth by empowering employees to develop new skills, contribute ideas, and drive automation and transformation initiatives. Through mentorship, recognition, inclusion, and a strong commitment to employee well-being, we create an environment where individuals feel valued, inspired, and empowered to achieve their full potential."
                         </p>
                         {/* <div className="landing-page-quote-author">
-                            <div className="landing-page-quote-author-info">
-                                <h5>Executive Leadership Board</h5>
-                                <span>Rio Tinto & HCLTech Collaboration</span>
-                            </div>
-                        </div> */}
+                                <div className="landing-page-quote-author-info">
+                                    <h5>Executive Leadership Board</h5>
+                                    <span>Rio Tinto & HCLTech Collaboration</span>
+                                </div>
+                            </div> */}
                     </div>
                     <div className="landing-page-quote-image-container">
                         <img src="https://cdn-rio.dataweavers.io/-/media/content/images/careers/rt-careers.jpg?rev=394e8484005242ea82297ad48bf31cf2" alt="Leadership" loading="lazy" />
@@ -301,11 +368,11 @@ const LandingPage = () => {
                             "Sustainable mining is not just about extracting resources efficiently; it's about enriching the communities we operate in and safeguarding the environment for future generations. Our commitment to achieving net-zero emissions drives every innovation and operational decision we make."
                         </p>
                         {/* <div className="landing-page-quote-author">
-                            <div className="landing-page-quote-author-info">
-                                <h5>Operations & Sustainability Team</h5>
-                                <span>Rio Tinto Yarwun</span>
-                            </div>
-                        </div> */}
+                                <div className="landing-page-quote-author-info">
+                                    <h5>Operations & Sustainability Team</h5>
+                                    <span>Rio Tinto Yarwun</span>
+                                </div>
+                            </div> */}
                     </div>
                 </div>
             </div>
